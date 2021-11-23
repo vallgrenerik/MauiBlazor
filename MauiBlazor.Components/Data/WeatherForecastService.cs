@@ -1,8 +1,4 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MauiBlazor.Data
+namespace MauiBlazor.Components.Data
 {
 	public class WeatherForecastService
 	{

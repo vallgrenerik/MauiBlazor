@@ -1,6 +1,4 @@
-using System;
-
-namespace MauiBlazor.Data
+namespace MauiBlazor.Components.Data
 {
 	public class WeatherForecast
 	{
