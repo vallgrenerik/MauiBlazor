@@ -16,4 +16,8 @@
     <PackageReference Include="MudBlazor" Version="6.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MauiBlazor.Shared\MauiBlazor.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

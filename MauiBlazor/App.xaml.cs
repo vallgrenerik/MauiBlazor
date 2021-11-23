@@ -1,6 +1,6 @@
-﻿using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
+﻿using MauiBlazor.Data;
+using System;
+using System.IO;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace MauiBlazor
@@ -12,6 +12,22 @@ namespace MauiBlazor
 			InitializeComponent();
 
 			MainPage = new MainPage();
+		}
+
+		private static SqliteDatabase _database;
+
+		public static SqliteDatabase Database
+		{
+			get
+			{
+				if (_database == null)
+				{
+					_database = new SqliteDatabase(Path.Combine(
+						Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
+				}
+
+				return _database;
+			}
 		}
 	}
 }
