@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using MauiBlazor.Models;
+using MauiBlazor.Shared.Models;
+using SQLite;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MauiBlazor.Models;
-using MauiBlazor.Shared;
-using SQLite;
 
 
 namespace MauiBlazor.Data

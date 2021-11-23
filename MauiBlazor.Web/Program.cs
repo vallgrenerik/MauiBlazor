@@ -1,6 +1,7 @@
 using MauiBlazor.Components;
 using MauiBlazor.Components.Data;
 using MauiBlazor.Shared;
+using MauiBlazor.Shared.Services;
 using MauiBlazor.Web.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

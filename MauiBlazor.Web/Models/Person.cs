@@ -1,4 +1,5 @@
 ﻿using MauiBlazor.Shared;
+using MauiBlazor.Shared.Models;
 
 namespace MauiBlazor.Web.Models
 {

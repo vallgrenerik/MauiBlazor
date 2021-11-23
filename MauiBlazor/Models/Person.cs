@@ -1,4 +1,4 @@
-﻿using MauiBlazor.Shared;
+﻿using MauiBlazor.Shared.Models;
 using SQLite;
 
 namespace MauiBlazor.Models

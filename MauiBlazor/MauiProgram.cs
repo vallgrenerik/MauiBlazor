@@ -1,6 +1,6 @@
 ﻿using MauiBlazor.Components.Data;
 using MauiBlazor.Services;
-using MauiBlazor.Shared;
+using MauiBlazor.Shared.Services;
 using Microsoft.AspNetCore.Components.WebView.Maui;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls.Hosting;

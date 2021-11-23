@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System;
 using MauiBlazor.Models;
-using MauiBlazor.Shared;
+using MauiBlazor.Shared.Models;
+using MauiBlazor.Shared.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MauiBlazor.Services
 {
@@ -9,19 +11,16 @@ namespace MauiBlazor.Services
 	{
 		public async Task<List<IPerson>> GetAllPersons()
 		{
-
-			var person = new Person
-			{
-				Name = "NyPerson"
-			};
-			await AddPerson(person);
-
-			var temp = await App.Database.AllPersons();
-			return temp;
+			return await App.Database.AllPersons();
 		}
 
-		public async Task AddPerson(IPerson person)
+		public async Task AddPerson()
 		{
+			var person = new Person
+			{
+				Name = $"NyPerson {DateTime.Now}"
+			};
+
 			await App.Database.AddPerson(person);
 		}
 	}
