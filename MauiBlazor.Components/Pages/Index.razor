@@ -1,13 +1,13 @@
 ﻿@page "/home"
 @page "/"
-
 @using MauiBlazor.Shared.ViewModels
+@using System.ComponentModel
+@inject INativeStuffViewModel _vm
 
-<h1>Hello, world!</h1>
 
+<h1>Hello, 111!</h1>
+<p>@_vm.Stuff</p>
 Welcome to your new app.
-
-
 
 <SurveyPrompt Title="Läget?" />
 <Component1/>
@@ -17,5 +17,18 @@ Welcome to your new app.
 @code
 {
 
+
+	
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		_vm.PropertyChanged += UpdateView;
+		StateHasChanged();
+	}
+
+	private void UpdateView(object? sender, PropertyChangedEventArgs e)
+	{
+		StateHasChanged();
+	}
 
 }

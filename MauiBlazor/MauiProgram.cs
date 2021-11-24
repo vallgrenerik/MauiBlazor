@@ -5,6 +5,7 @@ using MauiBlazor.Data;
 using MauiBlazor.Services;
 using MauiBlazor.Shared.Services;
 using MauiBlazor.Shared.ViewModels;
+using MauiBlazor.ViewModels;
 using Microsoft.AspNetCore.Components.WebView.Maui;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,7 @@ namespace MauiBlazor
 			builder.Services.AddSingleton<WeatherForecastService>();
 			builder.Services.AddScoped<IPersonService, PersonService>();
 			builder.Services.AddScoped<PersonViewModel>();
+			builder.Services.AddScoped<INativeStuffViewModel, NativeStuffViewModel>();
 			builder.Services.AddMudServices();
 			var combine = Path.Combine(
 				Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "katte.db");

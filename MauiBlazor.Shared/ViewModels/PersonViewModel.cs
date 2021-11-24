@@ -17,7 +17,7 @@ public class PersonViewModel : ViewModelBase
 	public List<Person> AllPersons
 	{
 		get => _allPersons;
-		set => SetProperty(ref _allPersons, value);
+		set => SetValue(ref _allPersons, value);
 	}
 
 	public async Task AddPerson()
