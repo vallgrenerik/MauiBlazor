@@ -1,7 +1,8 @@
 ﻿namespace MauiBlazor.Shared.Models
 {
-	public interface IPerson
+	public class Person 
 	{
+		public int Id { get; set; }
 		public string Name { get; set; }
 	}
 }

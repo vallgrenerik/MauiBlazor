@@ -1,38 +1,21 @@
 ﻿@page "/home"
 @page "/"
-@using MauiBlazor.Shared.Services
-@using MauiBlazor.Shared.Models
 
-@inject IPersonService _personService
+@using MauiBlazor.Shared.ViewModels
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
-@foreach (var temp in persons)
-{
-	<p>@temp.Name</p>
-}
+
 
 <SurveyPrompt Title="Läget?" />
 <Component1/>
-<MudButton OnClick="AddPerson" Variant="Variant.Filled">Add person</MudButton>
 <MudButton Variant="Variant.Filled" Color="Color.Primary">Primary</MudButton>
 <MudButton Variant="Variant.Filled" Color="Color.Secondary">Secondary</MudButton>
 <MudButton Variant="Variant.Filled" Disabled="true">Disabled</MudButton>
 @code
 {
-	private List<IPerson> persons = new(); 
-	protected override async Task OnInitializedAsync()
-	{
-		await base.OnInitializedAsync();
-		persons = await _personService.GetAllPersons();
 
-	}
 
-	private void AddPerson()
-	{
-		_personService.AddPerson();
-	//Todo use viewmodel to add persons
-	}
 }

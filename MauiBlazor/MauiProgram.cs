@@ -1,7 +1,12 @@
-﻿using MauiBlazor.Components.Data;
+﻿using System;
+using System.IO;
+using MauiBlazor.Components.Data;
+using MauiBlazor.Data;
 using MauiBlazor.Services;
 using MauiBlazor.Shared.Services;
+using MauiBlazor.Shared.ViewModels;
 using Microsoft.AspNetCore.Components.WebView.Maui;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
@@ -21,9 +26,14 @@ namespace MauiBlazor
 
 			builder.Services.AddBlazorWebView();
 			builder.Services.AddSingleton<WeatherForecastService>();
-			builder.Services.AddSingleton<IPersonService, PersonService>();
+			builder.Services.AddScoped<IPersonService, PersonService>();
+			builder.Services.AddScoped<PersonViewModel>();
 			builder.Services.AddMudServices();
-
+			var combine = Path.Combine(
+				Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "katte.db");
+			builder.Services.AddEntityFrameworkSqlite()
+				.AddDbContextFactory<MauiBlazorContext>(
+					opt => opt.UseSqlite($"Data Source={combine}"));
 			return builder.Build();
 		}
 	}

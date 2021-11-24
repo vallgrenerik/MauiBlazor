@@ -4,7 +4,7 @@ namespace MauiBlazor.Shared.Services
 {
 	public interface IPersonService
 	{
-		public Task<List<IPerson>> GetAllPersons();
+		public Task<List<Person>> GetAllPersons();
 		public Task AddPerson();
 	}
 }

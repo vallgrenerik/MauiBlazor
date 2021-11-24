@@ -1,7 +1,8 @@
-﻿using System;
-using MauiBlazor.Models;
+﻿using MauiBlazor.Data;
 using MauiBlazor.Shared.Models;
 using MauiBlazor.Shared.Services;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,9 +10,16 @@ namespace MauiBlazor.Services
 {
 	public class PersonService : IPersonService
 	{
-		public async Task<List<IPerson>> GetAllPersons()
+		private readonly MauiBlazorContext _context;
+
+		public PersonService(MauiBlazorContext context)
 		{
-			return await App.Database.AllPersons();
+			_context = context;
+		}
+
+		public async Task<List<Person>> GetAllPersons()
+		{
+			return await _context.Persons.ToListAsync();
 		}
 
 		public async Task AddPerson()
@@ -20,8 +28,8 @@ namespace MauiBlazor.Services
 			{
 				Name = $"NyPerson {DateTime.Now}"
 			};
-
-			await App.Database.AddPerson(person);
+			await _context.Persons.AddAsync(person);
+			await _context.SaveChangesAsync();
 		}
 	}
 }

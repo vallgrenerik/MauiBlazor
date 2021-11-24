@@ -1,13 +1,20 @@
 ﻿@page "/counter"
+@using MauiBlazor.Shared.ViewModels
 
 <h1>Counter</h1>
-
+@inject PersonViewModel _vm
+@foreach (var temp in _vm.AllPersons)
+{
+	<p>@temp.Name</p>
+}
 <MudPaper Class="pa-16 ma-2" Elevation="3">
 
 	<p role="status">Current count: @currentCount</p>
 
 
 </MudPaper>
+<MudButton OnClick="AddPerson" Variant="Variant.Filled">Add person</MudButton>
+
 <MudButton Variant="Variant.Filled" OnClick="IncrementCount" Color="Color.Primary">Senap prutt</MudButton>
 
 @code {
@@ -16,6 +23,15 @@
 	private void IncrementCount()
 	{
 		currentCount++;
+	}
+	private async Task AddPerson()
+	{
+		await _vm.AddPerson();
+	}
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		await _vm.Init();
 	}
 
 }
